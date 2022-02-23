@@ -1,10 +1,10 @@
 {
-  "name": "De Beste Game Van De Klas",
-  "short_name": "Game",
+  "name": "The Flying Dutchman",
+  "short_name": "FlyingDutchman",
   "icons": [{
-    "src": "icon-512x512.png",
+    "src": "flydu.jpeg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpg"
     }],
   "start_url": "index.html",
   "display": "fullscreen"
