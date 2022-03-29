@@ -14,7 +14,7 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 600; // x-positie van speler
+var spelerX = 400; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
 /* ********************************************* */
@@ -26,6 +26,12 @@ var spelerY = 600; // y-positie van speler
  */
 var beweegAlles = function () {
   // speler
+if (keyIsDown(87)) {
+  spelerY=spelerY-5
+}
+if (keyIsDown(83)) {
+  spelerY=spelerY+5
+}
 
   // vijand
 
@@ -51,7 +57,8 @@ var verwerkBotsing = function () {
  */
 var tekenAlles = function () {
   // achtergrond
-
+ fill('blue'); 
+ rect(0,0,1280,720);
   // vijand
 
   // kogel
@@ -111,4 +118,3 @@ function draw() {
 
   }
 }
-//hallo niek
