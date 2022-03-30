@@ -14,8 +14,8 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 400; // x-positie van speler
-var spelerY = 600; // y-positie van speler
+var spelerX = 375; // x-positie van speler
+var spelerY = 695; // y-positie van speler
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -27,10 +27,10 @@ var spelerY = 600; // y-positie van speler
 var beweegAlles = function () {
   // speler
 if (keyIsDown(87)) {
-  spelerY=spelerY-5
+  (spelerY = spelerY - 5)
 }
-if (keyIsDown(83)) {
-  spelerY=spelerY+5
+else {
+  (spelerY = 695, spelerY < 695, spelerY = spelerY + 5)
 }
 
   // vijand
@@ -65,10 +65,13 @@ var tekenAlles = function () {
 
   // speler
   fill("white");
-  rect(spelerX - 25, spelerY - 25, 50, 50);
-  fill("black");
+  ellipse (spelerX, spelerY, 50, 50);
+  
+  fill("red");
   ellipse(spelerX, spelerY, 10, 10);
-
+  
+  fill('white');
+  ellipse(spelerX, spelerY - 40, 30, 30)
   // punten en health
 
 };

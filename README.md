@@ -1,12 +1,12 @@
 Deze game is gebaseerd op het template voor 4HV van het Emmauscollege Rotterdam
 
-## Mijn spel: *naam van het spel*
+## Mijn spel: Flying Dutchman
 Gemaakt door:
-- *naam van leerling 1*
-- *naam van leerling 2*
+- Niek Nicolle (4VE)
+- Pieter Geerse (4VF)
 
 ### Beschrijving
-*korte beschrijving van het spel, wat je kunt doen in het spel, wat het doel is*
+Het doel is het ontwijken van vijanden en zo ver mogelijk in het level komen.
 
 ## Mijn planning
 Werk de planning af van boven naar beneden<br>
