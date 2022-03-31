@@ -30,7 +30,7 @@ if (keyIsDown(87)) {
   (spelerY = spelerY - 5)
 }
 else {
-  (spelerY = 695, spelerY < 695, spelerY = spelerY + 5)
+  (spelerY = spelerY + 5)
 }
 
   // vijand
