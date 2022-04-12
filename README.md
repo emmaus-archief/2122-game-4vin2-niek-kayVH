@@ -70,3 +70,14 @@ https://emmauscollege.github.io/informatica/game/
 - icon <br>
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
+
+## Planning
+Week 15: Het laten functioneren van de speler
+Week 16: Basis versie af
+Week 17: Meivakantie    
+Week 18: Meivakantie
+Week 19: Vijanden maken (blokkades)
+Week 20: Omgeving maken (achtergrond etc.)
+Week 21: Menu scherm maken
+Week 22: Verbetering van bestaande dingen
+Week 23: Eindresultaat inleveren (uiterlijk zondag 12 juni 23:59)
