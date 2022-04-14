@@ -25,9 +25,10 @@ var spelerY = 695; // y-positie van speler
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
 var beweegAlles = function () {
+
   // speler
 if (keyIsDown(87)) {
-  spelerY = spelerY - 5;
+  spelerY = spelerY - 6;
 }
 else {
   spelerY = spelerY + 5;
@@ -41,6 +42,7 @@ if (spelerY > 695) {
 
 
   // vijand
+  
 
   // kogel
 };
@@ -63,10 +65,20 @@ var verwerkBotsing = function () {
  * Tekent spelscherm
  */
 var tekenAlles = function () {
+
   // achtergrond
  fill('blue'); 
  rect(0,0,1280,720);
+
   // vijand
+  var vijandX = 500; 
+  var vijandY = 500;
+  
+  fill('red');
+  rect(vijandX, vijandY, 50, 50);
+
+  fill ('white')
+  ellipse (vijandX + 25, vijandY + 25, 10, 10)
 
   // kogel
 
