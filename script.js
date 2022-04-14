@@ -21,6 +21,9 @@ var spelerY = 695; // y-positie van speler
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
 
+var vijandX = 500; // x-positie van vijand
+var vijandY = 500; // y-positie van vijand
+
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
@@ -42,7 +45,9 @@ if (spelerY > 695) {
 
 
   // vijand
-  
+  if (vijandX > 50) {
+    vijandX = vijandX - 5;
+  }
 
   // kogel
 };
@@ -71,9 +76,6 @@ var tekenAlles = function () {
  rect(0,0,1280,720);
 
   // vijand
-  var vijandX = 500; 
-  var vijandY = 500;
-  
   fill('red');
   rect(vijandX, vijandY, 50, 50);
 
