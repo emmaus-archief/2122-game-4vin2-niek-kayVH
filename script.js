@@ -26,17 +26,19 @@ var spelerY = 695; // y-positie van speler
  */
 var beweegAlles = function () {
   // speler
-if (keyIsDown(87) && spelerY>50) {
+if (keyIsDown(87)) {
   spelerY = spelerY - 5;
 }
-
 else {
   spelerY = spelerY + 5;
 }
-
- if (spelerY < 50) {
-   spelerY = spelerY + 5;
+if (spelerY < 50) {
+   spelerY = 50;
  }
+if (spelerY > 695) {
+   spelerY = 695;
+ }
+
 
   // vijand
 
