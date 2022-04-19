@@ -30,7 +30,7 @@ var vijandY = 500; // y-positie van vijand
 var beweegAlles = function () {
 
   // speler
-if (keyIsDown(87)) {
+if (keyIsDown(32)) {
   spelerY = spelerY - 6;
 }
 else {
@@ -59,9 +59,11 @@ if (spelerY > 695) {
  */
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
-if (spelerX === vijandX &&
-  spelerY === vijandY) {
-  console.log("botsing");
+if (spelerX - vijandX <50 &&
+    spelerX - vijandX > -50 &&
+    spelerY - vijandY <50 &&
+    spelerY - vijandY > -50) {
+    console.log("botsing");
 }
   // botsing kogel tegen vijand
 
