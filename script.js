@@ -36,8 +36,8 @@ if (keyIsDown(32)) {
 else {
   spelerY = spelerY + 5;
 }
-if (spelerY < 50) {
-   spelerY = 50;
+if (spelerY < 0) {
+   spelerY = 0;
  }
 if (spelerY > 670) {
    spelerY = 670;
@@ -68,6 +68,15 @@ if (spelerX - vijandX <50 &&
   // botsing kogel tegen vijand
 
   // update punten en health
+  var score = 0
+if (spelerX - vijandX <50 &&
+  spelerX - vijandX > -50 &&
+  spelerY - vijandY <50 &&
+  spelerY - vijandY > -50) {
+  console.log("GameOver");
+} else {
+  score = score + 1;
+} 
 
 };
 
