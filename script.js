@@ -44,6 +44,7 @@ if (spelerY > 670) {
  }
 
 
+
   // vijand
   if (vijandX > -50) {
     vijandX = vijandX - 3;
@@ -58,27 +59,21 @@ if (spelerY > 670) {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function () {
-  // botsing speler tegen vijand
-if (spelerX - vijandX <50 &&
-    spelerX - vijandX > -50 &&
-    spelerY - vijandY <50 &&
-    spelerY - vijandY > -50) {
-    console.log("botsing");
+  // botsing speler tegen vijand 
+
+if (spelerX - VijandX < 50 &&
+    spelerX - VijandX > -50 &&
+    spelerY - VijandY < 50 &&
+    spelerY - VijandY > -50)
+
+
+if (console.log("botsing")){
+ // spelStatus === GAMEOVER;
+}
 }
   // botsing kogel tegen vijand
 
   // update punten en health
-  var score = 0
-if (spelerX - vijandX <50 &&
-  spelerX - vijandX > -50 &&
-  spelerY - vijandY <50 &&
-  spelerY - vijandY > -50) {
-  console.log("GameOver");
-} else {
-  score = score + 1;
-} 
-
-};
 
 /**
  * Tekent spelscherm
@@ -148,8 +143,10 @@ function draw() {
       spelStatus = GAMEOVER;
     }
   }
-  if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-
+  if (spelStatus === GAMEOVER) {
+    fill('green');
+    rect(0,0,1280,720);
   }
 }
+
