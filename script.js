@@ -49,13 +49,19 @@ if (spelerY > 670) {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function () {
-  // botsing speler tegen vijand
 if (spelerX - vijandX <50 &&
     spelerX - vijandX > -50 &&
     spelerY - vijandY <50 &&
     spelerY - vijandY > -50) {
     console.log("botsing");
     }
+    if (spelerX - vijandX <50 &&
+      spelerX - vijandX > -50 &&
+      spelerY - vijandY <50 &&
+      spelerY - vijandY > -50) {
+        spelStatus === GAMEOVER;
+      }
+
   // botsing kogel tegen vijand
 
   // update punten en health
@@ -129,11 +135,7 @@ function draw() {
     }
   }
   if (spelStatus === GAMEOVER) {
-    // teken game-over scherm
-
-  if (spelStatus === GAMEOVER) {
-    fill('green');
-    rect(0,0,1280,720);
+    background('green')
+  
   }
-}
 }
