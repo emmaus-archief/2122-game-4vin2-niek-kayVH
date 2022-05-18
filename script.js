@@ -55,25 +55,12 @@ if (spelerX - vijandX <50 &&
     spelerY - vijandY > -50) {
     console.log("botsing");
     }
-    if (spelerX - vijandX <50 &&
-      spelerX - vijandX > -50 &&
-      spelerY - vijandY <50 &&
-      spelerY - vijandY > -50) {
-        spelStatus === GAMEOVER;
-      }
+  
 
   // botsing kogel tegen vijand
 
   // update punten en health
-  var score = 0
-if (spelerX - vijandX <50 &&
-  spelerX - vijandX > -50 &&
-  spelerY - vijandY <50 &&
-  spelerY - vijandY > -50) {
-  console.log("GameOver");
-} else {
-  score = score + 1;
-} 
+ 
 
 };
 
@@ -103,6 +90,12 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
+  if (spelerX - vijandX <50 &&
+    spelerX - vijandX > -50 &&
+    spelerY - vijandY <50 &&
+    spelerY - vijandY > -50) {
+      return true;
+    }
   // check of HP 0 is , of tijd op is, of ...
   return false;
 };
@@ -130,12 +123,17 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
+    console.log('spelen');
+  
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
   }
   if (spelStatus === GAMEOVER) {
-    background('green')
-  
+    console.log('gamover');
+    background('blue');
+    textSize(50);
+    fill('white');
+    text('gameover', 550, 250);
   }
 }
