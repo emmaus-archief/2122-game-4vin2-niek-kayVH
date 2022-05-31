@@ -9,6 +9,7 @@
 /* ********************************************* */
 const SPELEN = 1;
 const GAMEOVER = 2;
+const UITLEG = 3;
 var spelStatus = SPELEN;
 var spelerX = 375; // x-positie van speler
 var spelerY = 670; // y-positie van speler
@@ -22,7 +23,7 @@ var vijandY = 500; // y-positie van vijand
  */
 var beweegAlles = function () {
   // speler
-if (keyIsDown(32)) {
+if (keyIsDown(87)) {
   spelerY = spelerY - 6;
 }
 else {
@@ -130,10 +131,24 @@ function draw() {
     }
   }
   if (spelStatus === GAMEOVER) {
-    console.log('gamover');
+    console.log('game over');
+    textSize(50);
+    fill('white');
+    text('Game Over, Press Space To Start', 150, 150);
+    if (keyIsDown(32)) {
+      spelStatus = UITLEG;
+    }
+  }
+  if (spelStatus === UITLEG) {
+    console.log('uitleg')
     background('blue');
     textSize(50);
     fill('white');
-    text('gameover', 550, 250);
+    text('Uitleg: Enter To Restart', 150, 150);
+    if (keyIsDown(13)) {
+    spelerY = 670;
+    vijandX = 1280;
+    spelStatus = SPELEN;
+     }
   }
 }
