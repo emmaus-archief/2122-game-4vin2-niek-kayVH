@@ -39,6 +39,9 @@ if (spelerY > 670) {
 
 
   // vijand
+  if (vijandX < -50) {
+    vijandX = 1280;
+  }
   if (vijandX > -50) {
     vijandX = vijandX - 3;
   }
@@ -56,6 +59,7 @@ if (spelerX - vijandX <50 &&
     spelerY - vijandY > -50) {
     console.log("botsing");
     }
+
   
 
   // botsing kogel tegen vijand
