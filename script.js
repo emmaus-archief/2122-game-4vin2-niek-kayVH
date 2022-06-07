@@ -10,14 +10,14 @@
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 3;
-var spelStatus = SPELEN;
+var spelStatus = UITLEG;
 var spelerX = 375; // x-positie van speler
 var spelerY = 670; // y-positie van speler
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
-var vijandX = 1280; // x-positie van vijand
-var vijandY = 500; // y-positie van vijand
+var vijandX = [3000, 2800, 2600, 2400, 2200, 1000, 8000, 600, 400] // x-positie van vijand
+var vijandY = [400, 700, 100, 550, 400, 200, 300, 600, 800] // y-positie van vijand
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
@@ -39,12 +39,7 @@ if (spelerY > 670) {
 
 
   // vijand
-  if (vijandX < -50) {
-    vijandX = 1280;
-  }
-  if (vijandX > -50) {
-    vijandX = vijandX - 3;
-  }
+  
   // kogel
 };
 /**
@@ -76,12 +71,18 @@ var tekenAlles = function () {
   // achtergrond
  fill('blue'); 
  rect(0,0,1280,720);
-  // vijand
-  fill('red');
-  rect(vijandX, vijandY, 50, 50);
-  fill ('white')
+  
+ // vijand
+ fill ('white');
+ for(var i = 0;i < vijandX.length; i++){
+   if(vijandX[i] > 0){
+  vijandX[i] = vijandX[i] - 3;
+  rect(vijandX[i], vijandY[i], 50, 50);
   ellipse (vijandX + 25, vijandY + 25, 10, 10)
+   }
+  }
   // kogel
+ 
   // speler
   fill("white");
   rect (spelerX, spelerY, 50, 50);
@@ -95,10 +96,11 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
-  if (spelerX - vijandX <50 &&
-    spelerX - vijandX > -50 &&
-    spelerY - vijandY <50 &&
-    spelerY - vijandY > -50) {
+  for(var a = 0; a<vijandY.length; a++)
+  if (spelerX - vijandX[a] <50 &&
+    spelerX - vijandX[a] > -50 &&
+    spelerY - vijandY[a] <50 &&
+    spelerY - vijandY[a] > -50) {
       return true;
     }
   // check of HP 0 is , of tijd op is, of ...
@@ -128,11 +130,10 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
-    console.log('spelen');
-  
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
+    console.log('spelen');
   }
   if (spelStatus === GAMEOVER) {
     console.log('game over');
@@ -150,8 +151,6 @@ function draw() {
     fill('white');
     text('Uitleg: Enter To Restart', 150, 150);
     if (keyIsDown(13)) {
-    spelerY = 670;
-    vijandX = 1280;
     spelStatus = SPELEN;
      }
   }
