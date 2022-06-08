@@ -151,6 +151,7 @@ function draw() {
     fill('white');
     text('Uitleg: Enter To Restart', 150, 150);
     if (keyIsDown(13)) {
+      vijandX = [3000, 2800, 2600, 2400, 2200, 1000, 8000, 600, 400];
     spelStatus = SPELEN;
      }
   }
