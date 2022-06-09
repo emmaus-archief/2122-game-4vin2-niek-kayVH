@@ -13,6 +13,9 @@ const UITLEG = 3;
 var spelStatus = UITLEG;
 var spelerX = 375; // x-positie van speler
 var spelerY = 670; // y-positie van speler
+
+var img; // plaatje speler
+var img2; // plaatje vijand
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -36,10 +39,15 @@ if (spelerY > 670) {
    spelerY = 670;
  }
 
+ function setup() {
+  image(img, 0, 0);
+}
 
 
   // vijand
-  
+  function setup() {
+    image(img2, 0, 0);
+  }
   // kogel
 };
 /**
@@ -77,18 +85,16 @@ var tekenAlles = function () {
  for(var i = 0;i < vijandX.length; i++){
    if(vijandX[i] > 0){
   vijandX[i] = vijandX[i] - 3;
-  rect(vijandX[i], vijandY[i], 50, 50);
-  ellipse (vijandX + 25, vijandY + 25, 10, 10)
+  image(img2, vijandX[i], vijandY[i], 60, 60);
    }
   }
+  
+    
+  
   // kogel
  
   // speler
-  fill("white");
-  rect (spelerX, spelerY, 50, 50);
-  
-  fill("red");
-  ellipse(spelerX + 25, spelerY + 25, 10, 10);
+  image(img, spelerX, spelerY, 60, 60);
   // punten en health
 };
 /**
@@ -109,6 +115,10 @@ var checkGameOver = function () {
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
+function preload() {
+  img = loadImage('kevin.webp');
+  img2 = loadImage('eyeball.webp')
+}
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
