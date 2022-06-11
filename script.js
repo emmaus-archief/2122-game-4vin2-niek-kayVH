@@ -149,17 +149,31 @@ function draw() {
     console.log('game over');
     textSize(50);
     fill('white');
-    text('Game Over, Press Space To Start', 150, 150);
+    text('Game Over, Klik SPATIE voor nieuw spel', 150, 150);
+    textSize(30);
+    text('Klik E om terug te gaan naar het menu', 150, 200);
     if (keyIsDown(32)) {
+      vijandX = [3000, 2800, 2600, 2400, 2200, 1000, 8000, 600, 400];
+      spelerX = 375;
+      spelerY = 615;
+      spelStatus = SPELEN;
+    }
+    if (keyIsDown(69)) {
       spelStatus = UITLEG;
     }
   }
   if (spelStatus === UITLEG) {
     console.log('uitleg')
-    background('blue');
+    background('black');
     textSize(50);
     fill('white');
-    text('Uitleg: Enter To Restart', 150, 150);
+    text('Welkom bij The Flying Dutchman!', 150, 150);
+    textSize(30);
+    text('Er komen straks vijanden jouw kant op', 150, 225);
+    text('Door de toets W ga je omhoog om deze te ontwijken', 150, 275);
+    text('Probeer zo lang mogelijk te overleven', 150, 325);
+    text('Veel speel plezier!', 150, 375);
+    text('Druk op ENTER om het spel te starten', 150, 550);
     if (keyIsDown(13)) {
       vijandX = [3000, 2800, 2600, 2400, 2200, 1000, 8000, 600, 400];
       spelerX = 375;
