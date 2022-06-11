@@ -12,7 +12,7 @@ const GAMEOVER = 2;
 const UITLEG = 3;
 var spelStatus = UITLEG;
 var spelerX = 375; // x-positie van speler
-var spelerY = 670; // y-positie van speler
+var spelerY = 615; // y-positie van speler
 
 var img; // plaatje speler
 var img2; // plaatje vijand
@@ -35,8 +35,8 @@ else {
 if (spelerY < 0) {
    spelerY = 0;
  }
-if (spelerY > 670) {
-   spelerY = 670;
+if (spelerY > 615) {
+   spelerY = 615;
  }
 
  function setup() {
@@ -56,10 +56,10 @@ if (spelerY > 670) {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function () {
-if (spelerX - vijandX <50 &&
-    spelerX - vijandX > -50 &&
-    spelerY - vijandY <50 &&
-    spelerY - vijandY > -50) {
+if (spelerX - vijandX <100 &&
+    spelerX - vijandX > -100 &&
+    spelerY - vijandY <100 &&
+    spelerY - vijandY > -100) {
     console.log("botsing");
     }
 
@@ -85,7 +85,7 @@ var tekenAlles = function () {
  for(var i = 0;i < vijandX.length; i++){
    if(vijandX[i] > 0){
   vijandX[i] = vijandX[i] - 3;
-  image(img2, vijandX[i], vijandY[i], 60, 60);
+  image(img2, vijandX[i], vijandY[i], 125, 125);
    }
   }
   
@@ -94,7 +94,7 @@ var tekenAlles = function () {
   // kogel
  
   // speler
-  image(img, spelerX, spelerY, 60, 60);
+  image(img, spelerX, spelerY, 125, 125);
   // punten en health
 };
 /**
@@ -103,10 +103,10 @@ var tekenAlles = function () {
  */
 var checkGameOver = function () {
   for(var a = 0; a<vijandY.length; a++)
-  if (spelerX - vijandX[a] <50 &&
-    spelerX - vijandX[a] > -50 &&
-    spelerY - vijandY[a] <50 &&
-    spelerY - vijandY[a] > -50) {
+  if (spelerX - vijandX[a] <100 &&
+    spelerX - vijandX[a] > -100 &&
+    spelerY - vijandY[a] <100 &&
+    spelerY - vijandY[a] > -100) {
       return true;
     }
   // check of HP 0 is , of tijd op is, of ...
@@ -163,7 +163,7 @@ function draw() {
     if (keyIsDown(13)) {
       vijandX = [3000, 2800, 2600, 2400, 2200, 1000, 8000, 600, 400];
       spelerX = 375;
-      spelerY = 670;
+      spelerY = 615;
     spelStatus = SPELEN;
      }
   }
