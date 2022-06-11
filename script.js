@@ -16,6 +16,7 @@ var spelerY = 615; // y-positie van speler
 
 var img; // plaatje speler
 var img2; // plaatje vijand
+var img3; // plaatje achtergrond
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -41,13 +42,12 @@ if (spelerY > 615) {
 
  function setup() {
   image(img, 0, 0);
+  image(img2, 0, 0);
 }
 
 
   // vijand
-  function setup() {
-    image(img2, 0, 0);
-  }
+  
   // kogel
 };
 /**
@@ -77,7 +77,7 @@ if (spelerX - vijandX <100 &&
  */
 var tekenAlles = function () {
   // achtergrond
- fill('blue'); 
+ fill('black') 
  rect(0,0,1280,720);
   
  // vijand
