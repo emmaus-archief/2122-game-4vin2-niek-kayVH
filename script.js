@@ -16,6 +16,9 @@ var spelerY = 615; // y-positie van speler
 
 var img; // plaatje speler
 var img2; // plaatje vijand
+var img3; // plaatje achtergrond
+var img4; // plaatje uitleg
+var img5; // plaatje gameover
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -75,8 +78,8 @@ var verwerkBotsing = function () {
  */
 var tekenAlles = function () {
   // achtergrond
-  fill('black')
-  rect(0, 0, 1280, 720);
+  image(img3, 0, 0, 1280, 720);
+  
 
   // vijand
   fill('white');
@@ -112,8 +115,11 @@ var checkGameOver = function () {
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
 function preload() {
-  img = loadImage('kevin.webp');
-  img2 = loadImage('eyeball.webp')
+  img = loadImage('Afbeeldingen/kevin.webp');
+  img2 = loadImage('Afbeeldingen/eyeball.webp');
+  img3 = loadImage('Afbeeldingen/Afbeelding.webp');
+  img4 = loadImage('Afbeeldingen/Uitleg.webp');
+  img5 = loadImage('Afbeeldingen/Gameover.jpg');
 }
 /**
  * setup
@@ -149,12 +155,12 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     console.log('game over');
-    background('black');
+    background(img5, 0, 0, 1280, 720);
     textSize(50);
     fill('white');
-    text('Game Over, Klik SPATIE voor nieuw spel', 150, 150);
+    text('Game Over, Klik SPATIE voor nieuw spel', 190, 350);
     textSize(30);
-    text('Klik E om terug te gaan naar het menu', 150, 200);
+    text('Klik E om terug te gaan naar het menu', 375, 400);
     for (var i = 0; i < vijandX.length; i++) {
       if (vijandX[i] <= 1200) {
         vijandX[i] = 0
@@ -171,7 +177,7 @@ function draw() {
   }
   if (spelStatus === UITLEG) {
     console.log('uitleg')
-    background('black');
+    background(img4, 0, 0, 1280, 72);
     textSize(50);
     fill('white');
     text('Welkom bij The Flying Dutchman!', 150, 150);
