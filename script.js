@@ -26,27 +26,27 @@ var vijandY = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] // y-positie van vijand
  */
 var beweegAlles = function () {
   // speler
-if (keyIsDown(87)) {
-  spelerY = spelerY - 6;
-}
-else {
-  spelerY = spelerY + 5;
-}
-if (spelerY < 0) {
-   spelerY = 0;
- }
-if (spelerY > 615) {
-   spelerY = 615;
- }
+  if (keyIsDown(87)) {
+    spelerY = spelerY - 6;
+  }
+  else {
+    spelerY = spelerY + 5;
+  }
+  if (spelerY < 0) {
+    spelerY = 0;
+  }
+  if (spelerY > 615) {
+    spelerY = 615;
+  }
 
- function setup() {
-  image(img, 0, 0);
-  image(img2, 0, 0);
-}
+  function setup() {
+    image(img, 0, 0);
+    image(img2, 0, 0);
+  }
 
 
   // vijand
-  
+
   // kogel
 };
 /**
@@ -55,24 +55,16 @@ if (spelerY > 615) {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function () {
-if (spelerX - vijandX <100 &&
-    spelerX - vijandX > -100 &&
-    spelerY - vijandY <100 &&
-    spelerY - vijandY > -100) {
-    console.log("botsing");
-    }
-
-  
-
   // botsing kogel tegen vijand
 
   // update punten en health
- 
+
+  // vijanden spawnen opnieuw
   for (var i = 0; i < vijandX.length; i++) {
- 
+
     vijandX[i] = vijandX[i] - 5;
     if (vijandX[i] < 0) {
-      vijandX[i] = random (1200, 5000);
+      vijandX[i] = random(1280, 5000);
     }
   }
 
@@ -83,20 +75,20 @@ if (spelerX - vijandX <100 &&
  */
 var tekenAlles = function () {
   // achtergrond
- fill('black') 
- rect(0,0,1280,720);
-  
- // vijand
- fill ('white');
- for(var i = 0;i < vijandX.length; i++){
-  image(img2, vijandX[i], vijandY[i], 125, 125);
-   }
-  
-  
-    
-  
+  fill('black')
+  rect(0, 0, 1280, 720);
+
+  // vijand
+  fill('white');
+  for (var i = 0; i < vijandX.length; i++) {
+    image(img2, vijandX[i], vijandY[i], 125, 125);
+  }
+
+
+
+
   // kogel
- 
+
   // speler
   image(img, spelerX, spelerY, 125, 125);
   // punten en health
@@ -106,11 +98,11 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
-  for(var a = 0; a<vijandY.length; a++)
-  if (spelerX - vijandX[a] <100 &&
-    spelerX - vijandX[a] > -100 &&
-    spelerY - vijandY[a] <100 &&
-    spelerY - vijandY[a] > -100) {
+  for (var a = 0; a < vijandY.length; a++)
+    if (spelerX - vijandX[a] < 100 &&
+      spelerX - vijandX[a] > -100 &&
+      spelerY - vijandY[a] < 100 &&
+      spelerY - vijandY[a] > -100) {
       return true;
     }
   // check of HP 0 is , of tijd op is, of ...
@@ -134,7 +126,7 @@ function setup() {
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
   // randomize
-  for (var i=0; i<vijandX.length; i++) {
+  for (var i = 0; i < vijandX.length; i++) {
 
     vijandY[i] = random(25, 750);
   }
@@ -163,14 +155,14 @@ function draw() {
     text('Game Over, Klik SPATIE voor nieuw spel', 150, 150);
     textSize(30);
     text('Klik E om terug te gaan naar het menu', 150, 200);
-    for (var i = 0; i < vijandX.length; i++){
-      if (vijandX[i] <= 1200){
+    for (var i = 0; i < vijandX.length; i++) {
+      if (vijandX[i] <= 1200) {
         vijandX[i] = 0
       }
-      }
+    }
     if (keyIsDown(32)) {
-     spelerX = 375;
-     spelerY = 615;
+      spelerX = 375;
+      spelerY = 615;
       spelStatus = SPELEN;
     }
     if (keyIsDown(69)) {
@@ -190,10 +182,9 @@ function draw() {
     text('Veel speel plezier!', 150, 375);
     text('Druk op ENTER om het spel te starten', 150, 550);
     if (keyIsDown(13)) {
-      
       spelerX = 375;
       spelerY = 615;
-    spelStatus = SPELEN;
-     }
+      spelStatus = SPELEN;
+    }
   }
 }
