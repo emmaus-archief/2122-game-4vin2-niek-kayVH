@@ -16,12 +16,11 @@ var spelerY = 615; // y-positie van speler
 
 var img; // plaatje speler
 var img2; // plaatje vijand
-var img3; // plaatje achtergrond
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
-var vijandX = [3000, 2800, 2600, 2400, 2200, 1000, 8000, 600, 400] // x-positie van vijand
-var vijandY = [400, 700, 100, 550, 400, 200, 300, 600, 800] // y-positie van vijand
+var vijandX = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] // x-positie van vijand
+var vijandY = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] // y-positie van vijand
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
@@ -69,6 +68,13 @@ if (spelerX - vijandX <100 &&
 
   // update punten en health
  
+  for (var i = 0; i < vijandX.length; i++) {
+ 
+    vijandX[i] = vijandX[i] - 5;
+    if (vijandX[i] < 0) {
+      vijandX[i] = random (1200, 5000);
+    }
+  }
 
 };
 
@@ -83,11 +89,9 @@ var tekenAlles = function () {
  // vijand
  fill ('white');
  for(var i = 0;i < vijandX.length; i++){
-   if(vijandX[i] > 0){
-  vijandX[i] = vijandX[i] - 3;
   image(img2, vijandX[i], vijandY[i], 125, 125);
    }
-  }
+  
   
     
   
@@ -96,7 +100,7 @@ var tekenAlles = function () {
   // speler
   image(img, spelerX, spelerY, 125, 125);
   // punten en health
-};
+}
 /**
  * return true als het gameover is
  * anders return false
@@ -129,7 +133,13 @@ function setup() {
   createCanvas(1280, 720);
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
+  // randomize
+  for (var i=0; i<vijandX.length; i++) {
+
+    vijandY[i] = random(25, 750);
+  }
 }
+
 /**
  * draw
  * de code in deze functie wordt 50 keer per seconde
@@ -147,15 +157,20 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     console.log('game over');
+    background('black');
     textSize(50);
     fill('white');
     text('Game Over, Klik SPATIE voor nieuw spel', 150, 150);
     textSize(30);
     text('Klik E om terug te gaan naar het menu', 150, 200);
+    for (var i = 0; i < vijandX.length; i++){
+      if (vijandX[i] <= 1200){
+        vijandX[i] = 0
+      }
+      }
     if (keyIsDown(32)) {
-      vijandX = [3000, 2800, 2600, 2400, 2200, 1000, 8000, 600, 400];
-      spelerX = 375;
-      spelerY = 615;
+     spelerX = 375;
+     spelerY = 615;
       spelStatus = SPELEN;
     }
     if (keyIsDown(69)) {
@@ -175,7 +190,7 @@ function draw() {
     text('Veel speel plezier!', 150, 375);
     text('Druk op ENTER om het spel te starten', 150, 550);
     if (keyIsDown(13)) {
-      vijandX = [3000, 2800, 2600, 2400, 2200, 1000, 8000, 600, 400];
+      
       spelerX = 375;
       spelerY = 615;
     spelStatus = SPELEN;
